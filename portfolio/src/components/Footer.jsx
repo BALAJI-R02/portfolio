@@ -11,7 +11,7 @@ export default function Footer() {
           <p className="mt-2 max-w-xl leading-relaxed">
             Cybersecurity, React builds, OSINT workflows, and practical problem solving.
           </p>
-          <p className="mt-3">© {year} Balaji R. Built with React, Tailwind CSS, and Vite.</p>
+          
         </div>
 
         <div className="flex flex-wrap gap-3 sm:justify-end">

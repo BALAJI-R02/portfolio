@@ -111,7 +111,7 @@ export const projects = [
 
 export const skills = {
   Programming: ["Java", "Python", "JavaScript"],
-  "Web Development": ["HTML", "CSS", "React", "Vite"],
+  "Web Development": ["HTML", "CSS", "React", "SpringBoot"],
   Database: ["MySQL"],
   "Data Structures & Algorithms": ["Arrays", "Linked Lists", "Stacks", "Queues", "Trees", "Graphs"],
   "Security Tools": ["Nmap", "Wireshark", "Maltego", "Burp Suite"],
