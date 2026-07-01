@@ -23,8 +23,8 @@ export const profile = {
     leetcode: "https://leetcode.com/u/BALAJI_R02/",
     tryhackme: "https://tryhackme.com/p/BALAJI.R",
   },
-  tagline: "Final-year CSE (Cybersecurity) undergraduate open to both cybersecurity and software development roles. I do web app pentesting, OSINT, and build with React, MySQL.",
-  bio: "Final-year Computer Science Engineering (Cybersecurity) undergraduate at Dr. NGP Institute of Technology, open to both cybersecurity and software development roles. I specialize in web application security, penetration testing and OSINT reconnaissance — with hands-on experience assessing real systems against the OWASP Top 10. On the development side, I build with HTML, CSS, JavaScript, React and MySQL, backed by strong Java fundamentals. NPTEL certified with 92%, interned at Hackup Technologies and actively competed in 6+ hackathons. I approach every problem — whether a vulnerability or a feature — with the same structured, analytical mindset.",
+  tagline: "Final-year CSE (Cybersecurity) undergraduate open to both cybersecurity and software development roles. I do web app pentesting, OSINT, and build with React, MySQL, SpringBoot.",
+  bio: "Final-year Computer Science Engineering (Cybersecurity) undergraduate at Dr. NGP Institute of Technology, open to both cybersecurity and software development roles. I specialize in web application security, penetration testing and OSINT reconnaissance — with hands-on experience assessing real systems against the OWASP Top 10. On the development side, I build with HTML, CSS, JavaScript, React, SpringBoot and MySQL, backed by strong Java fundamentals. NPTEL certified with 92%, interned at Hackup Technologies and actively competed in 6+ hackathons. I approach every problem — whether a vulnerability or a feature — with the same structured, analytical mindset.",
 };
 
 export const stats = [
@@ -126,6 +126,7 @@ export const certifications = [
   { file: "security-blue-team.png", name: "Introduction to Penetration Testing", org: "Security Blue Team", score: "" },
   { file: "microsoft.png", name: "Microsoft Security Essentials Professional Certificate", org: "Microsoft / LinkedIn Learning", score: "" },
   { file: "owasp.png", name: "OWASP Coimbatore Chapter Meetup", org: "Kumaraguru College of Technology", score: "" },
+  { file: "ethical-hacker.png", name: "Become an Ethical Hacker", org: "LinkedIn Learning", score: "38hrs" },
 ];
 
 export const hackathons = [

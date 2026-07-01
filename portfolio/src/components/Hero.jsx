@@ -7,7 +7,7 @@ const BOOT_LINES = [
   { text: "BALAJI R", delay: 22, dim: true },
   { text: "$ ./recon.sh --target=career --mode=verbose", delay: 22 },
   { text: "[INFO] resolving profile: cybersecurity-engineer", delay: 18, dim: true },
-  { text: "[INFO] scope: web app security, OSINT, pentesting", delay: 18, dim: true },
+  { text: "[INFO] scope: web app developing, OSINT, pentesting", delay: 18, dim: true },
   { text: "[INFO] artifacts found: 2 projects, 1 internship, 6 certs", delay: 18, dim: true },
   { text: "[OK]   profile verified — ready for review", delay: 22, dim: true },
   { text: "$ _", delay: 26 },
