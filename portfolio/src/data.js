@@ -6,7 +6,7 @@
 // Base64 decoder helper to obfuscate contact details from email/phone harvesting scrapers
 const decodeB64 = (str) => {
   if (typeof window !== "undefined") return atob(str);
-  if (typeof Buffer !== "undefined") return Buffer.from(str, "base64").toString("utf-8");
+  if (typeof globalThis.Buffer !== "undefined") return globalThis.Buffer.from(str, "base64").toString("utf-8");
   return "";
 };
 
@@ -32,6 +32,35 @@ export const stats = [
   { value: 10, suffix: "+", label: "misconfigs found" },
   { value: 6, suffix: "", label: "hackathons" },
   { value: 8.2, suffix: "", label: "CGPA" },
+];
+
+// Add exact platform numbers here when you want the site to show them:
+// example: { value: "180+", label: "LeetCode solved", ... }
+export const platformHighlights = [
+  {
+    value: "220+",
+    label: "LeetCode problems",
+    detail: "DSA problems solved with profile proof",
+    href: profile.links.leetcode,
+  },
+  {
+    value: "70+",
+    label: "TryHackMe rooms",
+    detail: "Hands-on cybersecurity rooms completed",
+    href: profile.links.tryhackme,
+  },
+  {
+    value: "6",
+    label: "certifications",
+    detail: "Security, pentesting, Microsoft, OWASP",
+    href: "#certs",
+  },
+  {
+    value: "2",
+    label: "project writeups",
+    detail: "AI security and OSINT-focused builds",
+    href: "#projects",
+  },
 ];
 
 export const experience = [

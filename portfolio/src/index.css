@@ -24,6 +24,30 @@
   --font-body: "Inter", sans-serif;
 }
 
+:root {
+  color-scheme: dark;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+  --color-bg-base: #f4f7fb;
+  --color-elevated: #ffffff;
+  --color-card: #edf3f8;
+  --color-border: #cfdae4;
+  --color-border-bright: #a9bdcc;
+
+  --color-amber: #c86d05;
+  --color-amber-dim: #9f5b08;
+  --color-steel: #156f9f;
+  --color-steel-dim: #2d7fa8;
+  --color-red: #c93d49;
+  --color-green-ok: #16834b;
+
+  --color-text: #13202b;
+  --color-text-dim: #4d6476;
+  --color-text-faint: #6f8496;
+}
+
 html {
   scroll-behavior: smooth;
 }
@@ -32,6 +56,7 @@ body {
   background: var(--color-bg-base);
   color: var(--color-text);
   font-family: var(--font-body);
+  transition: background-color 0.25s ease, color 0.25s ease;
 }
 
 ::selection {
@@ -168,6 +193,35 @@ body {
 
 .stat-number {
   animation: statGlow 3s ease-in-out infinite;
+}
+
+/* HERO PROOF CARD SCAN */
+@keyframes proofSweep {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+  }
+  35% {
+    opacity: 0.85;
+  }
+  100% {
+    transform: translateX(140%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+.proof-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(90deg, transparent, rgba(79,168,216,0.16), transparent);
+  pointer-events: none;
+  opacity: 0;
+}
+
+.proof-card:hover::before {
+  animation: proofSweep 0.9s ease-out;
 }
 
 /* 3D CARD TILT */

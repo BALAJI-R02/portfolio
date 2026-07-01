@@ -14,6 +14,17 @@ export default function Navbar() {
   const [scrolled, setScrolled]   = useState(false);
   const [open, setOpen]           = useState(false);
   const [activeId, setActiveId]   = useState("");
+  const [theme, setTheme]         = useState(() => {
+    if (typeof window === "undefined") return "dark";
+    const stored = window.localStorage.getItem("portfolio-theme");
+    const preferred = window.matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark";
+    return stored || preferred;
+  });
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    window.localStorage.setItem("portfolio-theme", theme);
+  }, [theme]);
 
   // scroll shadow
   useEffect(() => {
@@ -114,6 +125,30 @@ export default function Navbar() {
           >
             connect
           </a>
+          <button
+            type="button"
+            onClick={() => setTheme((value) => value === "dark" ? "light" : "dark")}
+            className="group relative flex h-9 w-16 items-center rounded-full border border-[var(--color-border-bright)] bg-[var(--color-card)] px-1 transition-colors hover:border-[var(--color-amber)]"
+            aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+            title={`Switch to ${theme === "dark" ? "light" : "dark"} mode`}
+          >
+            <span
+              className={`flex h-7 w-7 items-center justify-center rounded-full bg-[var(--color-amber)] text-[var(--color-bg-base)] shadow-[0_0_16px_rgba(255,159,28,0.35)] transition-transform ${
+                theme === "light" ? "translate-x-7" : "translate-x-0"
+              }`}
+            >
+              {theme === "dark" ? (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                  <path d="M12 3a6 6 0 0 0 9 7.5A9 9 0 1 1 12 3z" />
+                </svg>
+              ) : (
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="h-4 w-4">
+                  <circle cx="12" cy="12" r="4" />
+                  <path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41" />
+                </svg>
+              )}
+            </span>
+          </button>
         </div>
 
         {/* Mobile hamburger */}
@@ -157,6 +192,14 @@ export default function Navbar() {
           >
             connect
           </a>
+          <button
+            type="button"
+            onClick={() => setTheme((value) => value === "dark" ? "light" : "dark")}
+            className="flex items-center justify-between rounded-sm border border-[var(--color-border-bright)] px-3 py-2 font-mono text-sm text-[var(--color-text-dim)]"
+          >
+            theme
+            <span className="text-[var(--color-amber)]">{theme}</span>
+          </button>
         </div>
       </div>
     </nav>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from "react";
-import { profile } from "../data.js";
+import { platformHighlights, profile } from "../data.js";
 import photoUrl from "../assets/balaji-photo.jpeg";
 
 const BOOT_LINES = [
@@ -12,6 +12,13 @@ const BOOT_LINES = [
   { text: "[OK]   profile verified — ready for review", delay: 22, dim: true },
   { text: "$ _", delay: 26 },
 ];
+
+function prefersReducedMotion() {
+  return (
+    typeof window !== "undefined" &&
+    window.matchMedia("(prefers-reduced-motion: reduce)").matches
+  );
+}
 
 /* ──────────────────────────────────────────────────────────────
    ANIMATED NAME — letter-by-letter reveal + hover glow WAVE
@@ -77,6 +84,45 @@ function AnimatedName({ name, visible }) {
   );
 }
 
+function PlatformProof({ visible }) {
+  return (
+    <div
+      className="mt-7 grid gap-3 sm:grid-cols-2"
+      style={{
+        opacity: visible ? 1 : 0,
+        transform: visible ? "translateY(0)" : "translateY(10px)",
+        transition: "opacity 0.5s ease 1400ms, transform 0.5s ease 1400ms",
+      }}
+    >
+      {platformHighlights.map((item, idx) => (
+        <a
+          key={item.label}
+          href={item.href}
+          target={item.href.startsWith("http") ? "_blank" : undefined}
+          rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+          className="proof-card group relative overflow-hidden rounded-md border border-[var(--color-border)] bg-[rgba(17,27,38,0.72)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-amber)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
+          style={{ transitionDelay: visible ? `${idx * 70 + 1400}ms` : "0ms" }}
+        >
+          <div className="flex items-start justify-between gap-3">
+            <span className="font-[var(--font-display)] text-2xl font-bold text-[var(--color-amber)]">
+              {item.value}
+            </span>
+            <span className="font-mono text-[10px] text-[var(--color-text-faint)] transition-colors group-hover:text-[var(--color-amber)]">
+              OPEN
+            </span>
+          </div>
+          <p className="mt-1 font-mono text-[11px] uppercase tracking-[0.08em] text-[var(--color-text)]">
+            {item.label}
+          </p>
+          <p className="mt-2 text-xs leading-relaxed text-[var(--color-text-dim)]">
+            {item.detail}
+          </p>
+        </a>
+      ))}
+    </div>
+  );
+}
+
 /* ──────────────────────────────────────────────────────────────
    HERO
 ────────────────────────────────────────────────────────────── */
@@ -86,18 +132,15 @@ export default function Hero() {
   const tiltRef       = useRef(null);
   const glareRef      = useRef(null);
   const photoWrapRef  = useRef(null);
-  const [textVisible, setTextVisible] = useState(false);
+  const [textVisible, setTextVisible] = useState(() => prefersReducedMotion());
 
-  const prefersReduced =
-    typeof window !== "undefined" &&
-    window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const prefersReduced = prefersReducedMotion();
 
   /* ── Typewriter boot sequence ── */
   useEffect(() => {
     if (!bootRef.current) return;
     if (prefersReduced) {
       bootRef.current.textContent = BOOT_LINES.map((l) => l.text).join("\n");
-      setTextVisible(true);
       return;
     }
     let cancelled = false;
@@ -129,7 +172,7 @@ export default function Hero() {
 
   /* ── Scroll reveal ── */
   useEffect(() => {
-    if (prefersReduced) { setTextVisible(true); return; }
+    if (prefersReduced) return;
     const obs = new IntersectionObserver(
       ([e]) => { if (e.isIntersecting) { setTextVisible(true); obs.disconnect(); } },
       { threshold: 0.2 }
@@ -239,8 +282,10 @@ export default function Hero() {
               </a>
             </div>
 
+            <PlatformProof visible={textVisible} />
+
             {/* Status */}
-            <div className="mt-7 flex flex-wrap gap-6 font-mono text-xs text-[var(--color-text-faint)]" style={fadeIn(1500)}>
+            <div className="mt-7 flex flex-wrap gap-6 font-mono text-xs text-[var(--color-text-faint)]" style={fadeIn(1650)}>
               <span>📍 {profile.location}</span>
               <span className="flex items-center gap-1.5 text-[var(--color-green-ok)]">
                 <span className="relative flex h-2 w-2">
