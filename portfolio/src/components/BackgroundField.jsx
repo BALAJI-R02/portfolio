@@ -308,7 +308,7 @@ export default function BackgroundField() {
         className="absolute inset-0" 
         style={{ 
           background: 'var(--color-base)', 
-          opacity: 0.75,
+          opacity: 0.45,
           pointerEvents: 'none',
           zIndex: 1,
         }} 
