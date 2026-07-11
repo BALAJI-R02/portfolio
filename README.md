@@ -57,7 +57,7 @@ git commit -m "your message"
 git push
 ```
 
-
+```
 
 ## Project Structure
 
@@ -89,7 +89,7 @@ portfolio/
 ├── package.json
 └── vite.config.js
 
-
+```
 
 ## About Me
 
