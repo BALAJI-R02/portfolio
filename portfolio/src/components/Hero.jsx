@@ -100,7 +100,7 @@ function PlatformProof({ visible }) {
           href={item.href}
           target={item.href.startsWith("http") ? "_blank" : undefined}
           rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
-          className="proof-card group relative overflow-hidden rounded-md border border-[var(--color-border)] bg-[rgba(17,27,38,0.72)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-amber)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
+          className="proof-card group relative overflow-hidden rounded-md border border-[var(--color-border)] bg-[var(--color-card)] p-4 transition-all duration-300 hover:-translate-y-1 hover:border-[var(--color-amber)] hover:shadow-[0_18px_45px_rgba(0,0,0,0.22)]"
           style={{ transitionDelay: visible ? `${idx * 70 + 1400}ms` : "0ms" }}
         >
           <div className="flex items-start justify-between gap-3">
@@ -228,7 +228,7 @@ export default function Hero() {
         <div>
           {/* Terminal */}
           <div className="overflow-hidden rounded-md border border-[var(--color-border-bright)] bg-[var(--color-elevated)] shadow-[0_0_60px_rgba(255,159,28,0.07)]">
-            <div className="flex items-center gap-3 border-b border-[var(--color-border)] bg-[#0d1620] px-4 py-2.5">
+            <div className="flex items-center gap-3 border-b border-[var(--color-border)] bg-[var(--color-elevated)] px-4 py-2.5">
               <div className="flex gap-[7px]">
                 <span className="block h-[11px] w-[11px] rounded-full bg-[#ff5f56]" />
                 <span className="block h-[11px] w-[11px] rounded-full bg-[#ffbd2e]" />

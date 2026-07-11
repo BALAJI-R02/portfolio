@@ -1,7 +1,6 @@
 @import "tailwindcss";
 
 @theme {
-  /* ---- Color tokens: slate-navy / signal-amber security-analyst palette ---- */
   --color-bg-base: #0a0f14;
   --color-elevated: #0e1620;
   --color-card: #111b26;
@@ -30,22 +29,23 @@
 
 :root[data-theme="light"] {
   color-scheme: light;
-  --color-bg-base: #f4f7fb;
+  --color-bg-base: #f0f4f8;
+  --color-base: #f0f4f8;
   --color-elevated: #ffffff;
-  --color-card: #edf3f8;
-  --color-border: #cfdae4;
-  --color-border-bright: #a9bdcc;
+  --color-card: #dde8f2;
+  --color-border: #a8bfce;
+  --color-border-bright: #7a9db5;
 
-  --color-amber: #c86d05;
-  --color-amber-dim: #9f5b08;
-  --color-steel: #156f9f;
-  --color-steel-dim: #2d7fa8;
-  --color-red: #c93d49;
-  --color-green-ok: #16834b;
+  --color-amber: #b85c00;
+  --color-amber-dim: #8a4500;
+  --color-steel: #0e5f8a;
+  --color-steel-dim: #1a6e99;
+  --color-red: #b02030;
+  --color-green-ok: #0d6e3a;
 
-  --color-text: #13202b;
-  --color-text-dim: #4d6476;
-  --color-text-faint: #6f8496;
+  --color-text: #0a1520;
+  --color-text-dim: #1e3448;
+  --color-text-faint: #3a5468;
 }
 
 html {
@@ -113,22 +113,14 @@ body {
 
 /* FLOATING */
 @keyframes float {
-  from {
-    transform: translateY(0);
-  }
-  to {
-    transform: translateY(-8px);
-  }
+  from { transform: translateY(0); }
+  to { transform: translateY(-8px); }
 }
 
 /* SKILL TAG PULSE GLOW */
 @keyframes tagGlow {
-  0%, 100% {
-    box-shadow: 0 0 6px rgba(255,159,28,0.3);
-  }
-  50% {
-    box-shadow: 0 0 18px rgba(255,159,28,0.7);
-  }
+  0%, 100% { box-shadow: 0 0 6px rgba(255,159,28,0.3); }
+  50% { box-shadow: 0 0 18px rgba(255,159,28,0.7); }
 }
 
 .skill-accent:hover {
@@ -137,12 +129,8 @@ body {
 
 /* TIMELINE DOT PULSE */
 @keyframes timelinePulse {
-  0%, 100% {
-    box-shadow: 0 0 8px rgba(255,159,28,0.4);
-  }
-  50% {
-    box-shadow: 0 0 22px rgba(255,159,28,0.9);
-  }
+  0%, 100% { box-shadow: 0 0 8px rgba(255,159,28,0.4); }
+  50% { box-shadow: 0 0 22px rgba(255,159,28,0.9); }
 }
 
 .timeline-dot {
@@ -151,20 +139,10 @@ body {
 
 /* CERT IMAGE SCAN */
 @keyframes certScan {
-  0% {
-    top: -4%;
-    opacity: 0;
-  }
-  10% {
-    opacity: 1;
-  }
-  90% {
-    opacity: 1;
-  }
-  100% {
-    top: 104%;
-    opacity: 0;
-  }
+  0% { top: -4%; opacity: 0; }
+  10% { opacity: 1; }
+  90% { opacity: 1; }
+  100% { top: 104%; opacity: 0; }
 }
 
 .cert-scan::after {
@@ -183,12 +161,8 @@ body {
 
 /* STAT NUMBER GLOW */
 @keyframes statGlow {
-  0%, 100% {
-    text-shadow: 0 0 10px rgba(255,159,28,0.2);
-  }
-  50% {
-    text-shadow: 0 0 28px rgba(255,159,28,0.7), 0 0 50px rgba(255,159,28,0.3);
-  }
+  0%, 100% { text-shadow: 0 0 10px rgba(255,159,28,0.2); }
+  50% { text-shadow: 0 0 28px rgba(255,159,28,0.7), 0 0 50px rgba(255,159,28,0.3); }
 }
 
 .stat-number {
@@ -197,17 +171,9 @@ body {
 
 /* HERO PROOF CARD SCAN */
 @keyframes proofSweep {
-  0% {
-    transform: translateX(-120%) skewX(-18deg);
-    opacity: 0;
-  }
-  35% {
-    opacity: 0.85;
-  }
-  100% {
-    transform: translateX(140%) skewX(-18deg);
-    opacity: 0;
-  }
+  0% { transform: translateX(-120%) skewX(-18deg); opacity: 0; }
+  35% { opacity: 0.85; }
+  100% { transform: translateX(140%) skewX(-18deg); opacity: 0; }
 }
 
 .proof-card::before {
@@ -233,12 +199,8 @@ body {
 
 /* REDUCED MOTION */
 @media (prefers-reduced-motion: reduce) {
-  html {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;

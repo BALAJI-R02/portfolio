@@ -116,9 +116,9 @@ export default function BackgroundField() {
       const material = new THREE.MeshStandardMaterial({
         color: color,
         emissive: isAmber ? new THREE.Color('#d48c3a') : new THREE.Color('#2a3340'),
-        emissiveIntensity: isAmber ? 0.25 : 0.08,
+        emissiveIntensity: isAmber ? 0.08 : 0.03,
         roughness: 0.3,
-        metalness: 0.6,
+        opacity: 0.3, transparent: true,
       });
       const sphere = new THREE.Mesh(sphereGeo, material);
       sphere.position.copy(pos);
@@ -172,7 +172,7 @@ export default function BackgroundField() {
       const material = new THREE.LineBasicMaterial({
         color: 0x7f8c9e,
         transparent: true,
-        opacity: 0.18,
+        opacity: 0.08,
       });
       
       const lines = new THREE.LineSegments(geometry, material);
@@ -308,7 +308,7 @@ export default function BackgroundField() {
         className="absolute inset-0" 
         style={{ 
           background: 'var(--color-base)', 
-          opacity: 0.6,
+          opacity: 0.75,
           pointerEvents: 'none',
           zIndex: 1,
         }} 
