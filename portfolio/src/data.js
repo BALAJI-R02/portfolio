@@ -38,7 +38,7 @@ export const stats = [
 // example: { value: "180+", label: "LeetCode solved", ... }
 export const platformHighlights = [
   {
-    value: "220+",
+    value: "270+",
     label: "LeetCode problems",
     detail: "DSA problems solved with profile proof",
     href: profile.links.leetcode,
@@ -56,7 +56,7 @@ export const platformHighlights = [
     href: "#certs",
   },
   {
-    value: "2",
+    value: "4",
     label: "project writeups",
     detail: "AI security and OSINT-focused builds",
     href: "#projects",
@@ -105,6 +105,32 @@ export const projects = [
     next: "Add a feedback loop so analyst-confirmed false positives retrain the classifier over time.",
     stack: ["NLP", "Python", "OSINT", "Dark Web Monitoring"],
     link: "https://github.com/BALAJI-R02/Anti-Wildlife-Trafficking",
+  },
+  {
+    tag: "EDTECH / FULL-STACK",
+    tagColor: "green",
+    status: "OPEN SOURCE",
+    title: "EduShield",
+    subtitle: "Dropout-Risk & Scholarship Matching Platform",
+    objective: "Identify at-risk students before academic or financial problems become irreversible, and connect them directly to scholarships they qualify for — rather than just flagging risk and stopping there.",
+    method: "Built a weighted scoring engine (attendance 40%, marks 35%, fee status 25%) that runs on-demand and stores every computation for trend tracking, paired with a rule-based matcher that cross-references income, category, marks, and state against available scholarships.",
+    finding: "New students with no historical data were getting misread as high-risk by default — a cold-start problem that any threshold-based system faces. Defaulting incomplete records to a safe baseline instead of a neutral/zero score removed the false positives without hiding real risk once data existed.",
+    next: "Add a feedback/audit trail so mentors can log intervention outcomes against risk scores, closing the loop between \"flagged\" and \"did it help.\"",
+    stack: ["React", "Spring Boot", "MySQL", "JWT Auth", "Role-Based Access", "Recharts"],
+    link: "https://github.com/BALAJI-R02/EduShield",
+  },
+  {
+    tag: "OSINT / SECURITY",
+    tagColor: "cyan",
+    status: "OPEN SOURCE",
+    title: "Pretext",
+    subtitle: "Social Engineering Resilience Scanner",
+    objective: "Quantify an organization's human attack surface — not just open ports and CVEs — by modeling what a threat actor's passive reconnaissance phase would actually surface before crafting a phishing or impersonation attempt.",
+    method: "Built a SOC-style dashboard that pairs one live technical signal (SPF/DMARC/MX email-authentication auditing via Cloudflare DNS-over-HTTPS) with a simulated OSINT exposure model — harvested personnel, leaked file metadata, exposed subdomains — scored across four weighted categories into a composite Human Exposure Index, then generates per-employee phishing blueprints annotated with the psychological trigger each would exploit (authority, urgency, familiarity).",
+    finding: "Infrastructure-only audits (ports, known CVEs) undersell the real risk — most successful social engineering attacks succeed on human/contextual signal, not technical vulnerabilities. Grounding the simulation in one genuinely live signal (email spoofing posture) made the model materially more credible than a fully mocked scan, without needing to touch real personal data.",
+    next: "Extend the DNS audit layer with additional live signals (e.g., typosquat domain detection, breach-corpus lookups against public databases) to grow the real-data footprint while keeping the personnel-level simulation strictly synthetic.",
+    stack: ["Next.js", "TypeScript", "OSINT", "Social Engineering", "DNS", "Security", "Tailwind CSS"],
+    link: "https://github.com/BALAJI-R02/pretext",
   },
 ];
 
