@@ -38,7 +38,7 @@ export const stats = [
 // example: { value: "180+", label: "LeetCode solved", ... }
 export const platformHighlights = [
   {
-    value: "270+",
+    value: "370+",
     label: "LeetCode problems",
     detail: "DSA problems solved with profile proof",
     href: profile.links.leetcode,
