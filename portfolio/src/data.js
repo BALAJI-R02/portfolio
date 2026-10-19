@@ -50,7 +50,7 @@ export const platformHighlights = [
     href: profile.links.tryhackme,
   },
   {
-    value: "6",
+    value: "7",
     label: "certifications",
     detail: "Security, pentesting, Microsoft, OWASP",
     href: "#certs",
